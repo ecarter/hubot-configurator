@@ -1,0 +1,19 @@
+{
+  "name": "hubot-configurator",
+  "version": "0.0.1",
+  "description": "hubot script for getting / setting env vars",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ecarter/hubot-configurator.git"
+  },
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "config",
+    "configuration",
+    "environment",
+    "variable"
+  ],
+  "author": "Erin Carter <hi@dnvsfn.com>",
+  "license": "MIT"
+}
