@@ -6,7 +6,8 @@ _Useful for quickly changing env vars when testing [hubot-scripts](https://githu
 ## Commands
 
     hubot config - show environment variables
-    hubot config <variable>=<value> - set environment variables
+    hubot config <key> - get environment variable value
+    hubot config <key>=<value> - set environment variable
 
 # Installation
 
