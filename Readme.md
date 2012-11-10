@@ -11,9 +11,9 @@ _Useful for quickly changing env vars when testing [hubot-scripts](https://githu
 
 ## Configuration
 
-    HUBOT_CONFIG_PREFIX - force variable setting with prefix eg. HUBOT_
-    HUBOT_CONFIG_IGNORE - hide variables regexp: (PATH|PS1)
-    HUBOT_CONFIG_HASH - hash values like passwords regexp: _PASSWORD$
+* `HUBOT_CONFIG_PREFIX` - force variable setting with prefix eg. `HUBOT_`
+* `HUBOT_CONFIG_IGNORE` - hide variables regexp: `(PATH|PS1)`
+* `HUBOT_CONFIG_HASH` - hash values like passwords regexp: `_PASSWORD$`
 
 # Installation
 
