@@ -22,7 +22,6 @@ module.exports = (robot) ->
   prefix = process.env.HUBOT_CONFIG_PREFIX
   ignore = process.env.HUBOT_CONFIG_IGNORE
   hash =   process.env.HUBOT_CONFIG_HASH
-  config = []
 
   check = (attr, value) ->
     if prefix
@@ -37,15 +36,28 @@ module.exports = (robot) ->
       pattern = new RegExp hash
       if pattern.test attr
         value = "********"
-    config.push "#{attr}: #{value}"
+    return attr: attr, value: value
 
-  robot.respond /config? (.*)=(.*)/i, (msg) ->
-    name = if prefix then "#{prefix}_#{msg.match[1]}" else msg.match[1]
-    process.env[name] = msg.match[2]
-    msg.send "variable set: #{name} = #{msg.match[2]}"
+  robot.respond /config (\w+)(=(.*))?/i, (msg) ->
+    name =  msg.match[1]
+    value = msg.match[3]
+    if value
+      cnf = check name, value
+      if cnf
+        process.env[name] = value
+        message = "variable set: #{name} = #{value}"
+      else
+        message = "Sorry, cannot set #{name}"
+    else
+      cnf = check name, process.env[name]
+      message = if cnf then "#{name}: #{cnf.value}" else "Sorry, couldn't find #{name}"
+    msg.send message
 
   robot.respond /config$/i, (msg) ->
+    config = []
     for own attr, value of process.env
-      check attr, value
+      cnf = check attr, value
+      if cnf
+        config.push "#{attr}: #{value}"
     msg.send config.join("\n")
 
