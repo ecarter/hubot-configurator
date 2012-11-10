@@ -10,8 +10,7 @@ _Useful for quickly changing env vars when testing [hubot-scripts](https://githu
 
 # Installation
 
-1. Copy `configurator.coffee` to your `hubot/scripts` directory
-2. Add `configurator.coffee` to `hubot-scripts.json`
+Copy `configurator.coffee` to your `hubot/scripts` directory
 
 # Author
 
